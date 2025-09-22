@@ -1,76 +1,71 @@
 <div align="center">
 	<h1>Crypto Today</h1>
-	<p><b>Demo web quản lý & theo dõi thị trường Crypto, xây dựng với Laravel + CoinGecko API</b></p>
+	<p><b>Demo web for managing & tracking the crypto market, built with Laravel + CoinGecko API</b></p>
 </div>
 
-## 🚀 Tính năng chính
+## 🚀 Main Features
 
-- Đăng ký, đăng nhập, phân quyền user (user/admin)
-- Trang Dashboard:
-	- Hiển thị top 10 coin vốn hóa lớn (dữ liệu realtime từ CoinGecko)
-	- Xem biểu đồ giá 7 ngày từng coin (Chart.js)
-	- Thêm/bỏ coin vào Watchlist cá nhân (lưu DB, đồng bộ backend)
-- Trang Watchlist:
-	- Xem nhanh các coin đã lưu
-- Trang Admin:
-	- Quản lý user (CRUD)
-	- Xem trực tiếp Watchlist của từng user
-- Responsive UI, hiện đại, dễ sử dụng
+- User registration, login, and role-based access (user/admin)
+- Dashboard:
+	- Display top 10 coins by market cap (realtime data from CoinGecko)
+	- View 7-day price chart for each coin (Chart.js)
+	- Add/remove coins to personal Watchlist (saved in DB, backend synced)
+- Watchlist page:
+	- Quickly view your saved coins
+- Admin page:
+	- User management (CRUD)
+	- View each user's Watchlist directly
+- Responsive, modern UI, easy to use
 
-## 🛠️ Công nghệ sử dụng
+## 🛠️ Technology Stack
 
 - Laravel 10 (PHP)
 - Blade Template
 - Tailwind CSS
 - JavaScript (fetch API, Chart.js)
 - CoinGecko API (market data)
-- MySQL (hoặc SQLite)
+- MySQL (or SQLite)
 
-## ⚡ Hướng dẫn cài đặt nhanh
+## ⚡ Quick Start
 
-1. Clone project:
+1. Clone the project:
 	 ```bash
 	 git clone https://github.com/ductaiii/CryptoToDay_Demo.git
 	 cd CryptoToDay_Demo/monad-wallet
 	 ```
-2. Cài đặt package:
+2. Install dependencies:
 	 ```bash
 	 composer install
-	 npm install && npm run build # nếu dùng frontend build
+	 npm install && npm run build # if using frontend build
 	 ```
-3. Tạo file `.env` và cấu hình database:
+3. Create `.env` file and configure database:
 	 ```bash
 	 cp .env.example .env
-	 # sửa DB_DATABASE, DB_USERNAME, DB_PASSWORD cho phù hợp
+	 # edit DB_DATABASE, DB_USERNAME, DB_PASSWORD as needed
 	 ```
-4. Tạo key và migrate database:
+4. Generate app key and migrate database:
 	 ```bash
 	 php artisan key:generate
 	 php artisan migrate
 	 ```
-5. Chạy server:
+5. Run the server:
 	 ```bash
 	 php artisan serve
 	 ```
-6. Truy cập: http://127.0.0.1:8000
+6. Visit: http://127.0.0.1:8000
 
-## 📝 Demo tài khoản
+## 📚 API & Data Structure
 
-- Tài khoản admin: `taicutm@gmail.com` / mật khẩu bạn tự tạo khi seed hoặc đăng ký
-- Tài khoản user: `luubi@gmail.com`, `tonggiang@gmail.com` ...
-
-## 📚 API & cấu trúc dữ liệu
-
-- Đồng bộ Watchlist qua API:
+- Watchlist sync via API:
 	- `/api/watchlist` (user): GET/POST
 	- `/admin/users/{id}/watchlist` (admin): GET
-- Watchlist lưu dạng JSON trong bảng `users`
+- Watchlist is stored as JSON in the `users` table
 
-## 💡 Ghi chú
+## 💡 Notes
 
-- Dự án chỉ demo, không lưu private key, không thực hiện giao dịch thật.
-- Dữ liệu coin lấy từ CoinGecko, có thể bị giới hạn request nếu spam.
-- UI có thể tuỳ chỉnh thêm theo nhu cầu.
+- This is a demo project, does not store private keys, and does not perform real transactions.
+- Coin data is fetched from CoinGecko, may be rate-limited if spammed.
+- UI can be customized as needed.
 
 ---
 <div align="center">Made with ❤️ by ductaiii</div>
