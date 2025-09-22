@@ -1,43 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+	<h1>Crypto Today</h1>
+	<p><b>Demo web quản lý & theo dõi thị trường Crypto, xây dựng với Laravel + CoinGecko API</b></p>
+</div>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 🚀 Tính năng chính
 
-## About Laravel
+- Đăng ký, đăng nhập, phân quyền user (user/admin)
+- Trang Dashboard:
+	- Hiển thị top 10 coin vốn hóa lớn (dữ liệu realtime từ CoinGecko)
+	- Xem biểu đồ giá 7 ngày từng coin (Chart.js)
+	- Thêm/bỏ coin vào Watchlist cá nhân (lưu DB, đồng bộ backend)
+- Trang Watchlist:
+	- Xem nhanh các coin đã lưu
+- Trang Admin:
+	- Quản lý user (CRUD)
+	- Xem trực tiếp Watchlist của từng user
+- Responsive UI, hiện đại, dễ sử dụng
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Công nghệ sử dụng
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Laravel 10 (PHP)
+- Blade Template
+- Tailwind CSS
+- JavaScript (fetch API, Chart.js)
+- CoinGecko API (market data)
+- MySQL (hoặc SQLite)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ⚡ Hướng dẫn cài đặt nhanh
 
-## Learning Laravel
+1. Clone project:
+	 ```bash
+	 git clone https://github.com/ductaiii/CryptoToDay_Demo.git
+	 cd CryptoToDay_Demo/monad-wallet
+	 ```
+2. Cài đặt package:
+	 ```bash
+	 composer install
+	 npm install && npm run build # nếu dùng frontend build
+	 ```
+3. Tạo file `.env` và cấu hình database:
+	 ```bash
+	 cp .env.example .env
+	 # sửa DB_DATABASE, DB_USERNAME, DB_PASSWORD cho phù hợp
+	 ```
+4. Tạo key và migrate database:
+	 ```bash
+	 php artisan key:generate
+	 php artisan migrate
+	 ```
+5. Chạy server:
+	 ```bash
+	 php artisan serve
+	 ```
+6. Truy cập: http://127.0.0.1:8000
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📝 Demo tài khoản
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Tài khoản admin: `taicutm@gmail.com` / mật khẩu bạn tự tạo khi seed hoặc đăng ký
+- Tài khoản user: `luubi@gmail.com`, `tonggiang@gmail.com` ...
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 📚 API & cấu trúc dữ liệu
 
-## Laravel Sponsors
+- Đồng bộ Watchlist qua API:
+	- `/api/watchlist` (user): GET/POST
+	- `/admin/users/{id}/watchlist` (admin): GET
+- Watchlist lưu dạng JSON trong bảng `users`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 💡 Ghi chú
 
-### Premium Partners
+- Dự án chỉ demo, không lưu private key, không thực hiện giao dịch thật.
+- Dữ liệu coin lấy từ CoinGecko, có thể bị giới hạn request nếu spam.
+- UI có thể tuỳ chỉnh thêm theo nhu cầu.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+---
+<div align="center">Made with ❤️ by ductaiii & Copilot</div>
 - **[64 Robots](https://64robots.com)**
 - **[Curotec](https://www.curotec.com/services/technologies/laravel)**
 - **[DevSquad](https://devsquad.com/hire-laravel-developers)**
